@@ -7,6 +7,9 @@ import { Education } from "./components/Education";
 import { Summary } from "./components/Summary";
 import { Skills } from "./components/Skills";
 import { Header } from "./components/Header";
+import { Certifications } from "./components/Certifications";
+import { Achievements } from "./components/Achievements";
+import { PositionOfResponsibility } from "./components/PositionOfResponsibility";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name} - Resume`,
@@ -74,13 +77,19 @@ export default function ResumePage() {
         <div className="space-y-8 print:space-y-4">
           <Summary summary={RESUME_DATA.summary} />
 
-          <WorkExperience work={RESUME_DATA.work} />
-
-          <Education education={RESUME_DATA.education} />
+          {/* <WorkExperience work={RESUME_DATA.work} /> */}
 
           <Skills skills={RESUME_DATA.skills} />
 
           <Projects projects={RESUME_DATA.projects} />
+
+          <Education education={RESUME_DATA.education} />
+
+          <PositionOfResponsibility positions={RESUME_DATA.positions} />
+
+          <Certifications certifications={RESUME_DATA.certifications} />
+
+          <Achievements achievements={RESUME_DATA.achievements} />
         </div>
       </section>
 

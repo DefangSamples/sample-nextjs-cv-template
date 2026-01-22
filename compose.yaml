@@ -1,0 +1,24 @@
+name: nextjs-cv
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+    - target: 3000
+      published: 3000
+      mode: ingress
+    environment:
+    - NODE_ENV=production
+    healthcheck:
+      test:
+      - CMD
+      - wget
+      - --spider
+      - http://localhost:3000/
+    deploy:
+      resources:
+        reservations:
+          cpus: '0.5'
+          memory: 512M
